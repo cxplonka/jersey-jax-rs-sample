@@ -4,6 +4,7 @@ build/
 nbbuild/
 dist/
 nbdist/
+private/
 .gradle/
 nbactions.xml
 nb-configuration.xml

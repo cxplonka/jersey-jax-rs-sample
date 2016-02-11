@@ -25,16 +25,9 @@ public class ExampleService {
     }
 
     @GET
-    @Path("/xml")
-    @Produces(MediaType.APPLICATION_XML)
-    public Entry getXML() {
-        return new Entry(0, "XML");
-    }
-    
-    @GET
-    @Path("/json")
-    @Produces(MediaType.APPLICATION_JSON)
-    public Entry getJSON() {
-        return new Entry(0, "JSON");
+    @Path("/jaxb")
+    @Produces({MediaType.APPLICATION_XML, MediaType.APPLICATION_JSON})
+    public Entry getJAXB() {
+        return new Entry(0, "ENTRY");
     }
 }

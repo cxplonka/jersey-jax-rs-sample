@@ -2,6 +2,7 @@ package com.jersey.service;
 
 import com.jersey.jaxb.Entry;
 import javax.ws.rs.core.Application;
+import javax.ws.rs.core.MediaType;
 import javax.xml.bind.JAXBException;
 import org.glassfish.jersey.server.ResourceConfig;
 import org.glassfish.jersey.test.JerseyTest;
@@ -36,17 +37,17 @@ public class ExampleServiceTest extends JerseyTest {
 
     @Test
     public void testXML() throws JAXBException {
-        Entry entry = target("/api/xml").request().get(Entry.class);
+        Entry entry = target("/api/jaxb").request(MediaType.APPLICATION_XML).get(Entry.class);
         
         assertEquals(0, entry.id);
-        assertEquals("XML", entry.name);
+        assertEquals("ENTRY", entry.name);
     }
     
     @Test
     public void testJSON() throws JAXBException {
-        Entry entry = target("/api/json").request().get(Entry.class);
+        Entry entry = target("/api/jaxb").request(MediaType.APPLICATION_JSON).get(Entry.class);
         
         assertEquals(0, entry.id);
-        assertEquals("JSON", entry.name);
+        assertEquals("ENTRY", entry.name);
     }
 }
